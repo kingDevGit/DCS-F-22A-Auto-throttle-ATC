@@ -133,12 +133,9 @@ function update()
     end
 
     -- Disengage when landed
-	if (wow_l == 1 or wow_r == 1) then
+	if (wow_l == 1 or wow_r == 1) and AUTOTHROTTLE_STATE == 1 then
 		throttle_axis()	
-		if AUTOTHROTTLE_STATE == 1 then
-			dispatch_action(nil,10210)
-
-		end 
+        dispatch_action(nil,10210)
 	end
 end
 
