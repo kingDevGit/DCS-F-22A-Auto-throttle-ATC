@@ -1825,7 +1825,7 @@ AutoThrApp.h_clip_relation  = h_clip_relations.COMPARE
 AutoThrApp.level 			= 10
 AutoThrApp.init_rot 		= {0, 0, 0}
 AutoThrApp.init_pos 		= {0, 6, 0}
-AutoThrApp.element_params 	= {"L_WAR_OPACITY","ATC_APPROACH","UFD_OPACITY"} --get_param_handle
+AutoThrApp.element_params 	= {"R_WAR_OPACITY","ATC_APPROACH","UFD_OPACITY"} --get_param_handle
 AutoThrApp.controllers		= 	{{"parameter_in_range",0,0.9,1.1}, {"parameter_in_range",1,0.1,1.1}, {"opacity_using_parameter",2}}
 Add(AutoThrApp)
 
@@ -1840,7 +1840,7 @@ AutoThrCru.h_clip_relation  = h_clip_relations.COMPARE
 AutoThrCru.level 			= 10
 AutoThrCru.init_rot 		= {0, 0, 0}
 AutoThrCru.init_pos 		= {0, 6, 0}
-AutoThrCru.element_params 	= {"L_WAR_OPACITY","ATC_CRUISE","UFD_OPACITY"} --get_param_handle
+AutoThrCru.element_params 	= {"R_WAR_OPACITY","ATC_CRUISE","UFD_OPACITY"} --get_param_handle
 AutoThrCru.controllers		= 	{{"parameter_in_range",0,0.9,1.1}, {"parameter_in_range",1,0.1,1.1}, {"opacity_using_parameter",2}}
 Add(AutoThrCru)
 
