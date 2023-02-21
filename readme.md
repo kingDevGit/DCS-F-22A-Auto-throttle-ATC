@@ -3,6 +3,9 @@ Add-on Script to enable Auto throttle to DCS World F-22A Community Mod
 Concept is similar to F/A-18C ATC 
 This ATC mod is ported from JAS39 Gripen Mod.  Thanks for keeping the works open-source!
 
+# Reason
+I'm a lazy computer pilot.  I always use ATC to land F/A-18C.  I believe F-22A must have ATC feature so I implement it.
+
 # Video Demo
 
 Coming soon
@@ -34,6 +37,13 @@ This ATC has two modes and they will engage with different situations.
     https://www.youtube.com/watch?v=7WTiRgKEFbY
 
     P.S. Flaps need to be all down to engage in approach mode.  Wait the FLAPS DOWN text turn blue before depress engage atc.
+    
+    Landing procedure with ATC: 
+    Speedbrake out, when ias <=250knots, gear down, flaps down.
+    ATC engage, trim the velocity vector point to the runway.
+    Adjust banking with the stick, no need to touch the throttle anymore.
+    Once touched down, brake as usual.
+    Easy landed.
 
 2 - Cruise Mode
     This mode is for cruise as the name stated. It will try to keep the plane with the TRUE AIRSPEED of the plane at the time ATC is engaged
