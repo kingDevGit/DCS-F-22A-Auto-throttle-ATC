@@ -34,7 +34,7 @@ After you bind a key to Auto-throttle, depress it to engage ATC.
 
 This ATC has two modes and they will engage with different situations.
 
-1 - Approach Mode
+- Approach Mode
     This mode mainly is for landing. It will keep the plane with 12 degree of AoA.
     Would be engage when flaps down and speedbrake on.
 
@@ -44,27 +44,30 @@ This ATC has two modes and they will engage with different situations.
 
     P.S. Flaps need to be all down to engage in approach mode.  Wait the FLAPS DOWN text turn blue before depress engage atc.
     
-    Landing procedure with ATC: 
-    Speedbrake out, when ias <=250knots, gear down, flaps down.
-    ATC engage, trim the velocity vector point to the runway.
-    Adjust banking with the stick, no need to touch the throttle anymore.
-    Once touched down, brake as usual.
-    Easy landed. Taxi to runway.
+    ## Landing procedure with ATC: 
+    - Speedbrake out, when ias <=250knots, gear down, flaps down.
+    - ATC engage, trim the velocity vector point to the runway.
+    - Adjust banking with the stick, no need to touch the throttle anymore.
+    - Once touched down, brake as usual.
+    - Easy landed. Taxi to runway.
 
-2 - Cruise Mode
+- Cruise Mode
     This mode is for cruise as the name stated. It will try to keep the plane with the TRUE AIRSPEED of the plane at the time ATC is engaged
 
+   ## ATC would be disengaged when the following conditions are met:
+
+    - Flaps position changed
+
+    - Weight on Wheels
+
+- UFD will should the status text "ATC APPROACH"/"ATC CRUISE"
+
+- Throttle would be unusable when ATC is engaged
 
 
-UFD will should the status text "ATC APPROACH"/"ATC CRUISE"
+- Approach mode will keep the aircraft with AoA 12 degrees.  With this AoA the aircraft could land with the posture very close to real life.
 
-Throttle would be unusable when ATC is engaged
-
-ATC would be disengaged when the following conditions are met:
-
-Flaps position changed
-
-Weight on Wheels
+- Cruise mode will try to keep your existing true airspeed.  Useful on AAR, cruise.  The plane in this mod could accelerate very quickly so it could prevent the aircraft from draining fuels.  Also because of the same reason (plane easy to go fast), ATC won't be useful on slow speed as even you pull the throttle all way down the plane can still keep the speed for quite a while or even accelerate if you point the nose downward.  That's also why you need the speedbrake to maintain AoA in approach mode tho IRL F-22A do use the speedbrake while landing so it's close to realistic. 
 
 # Work in progress
 - Fine tune the PID settings.  Have not done any calculation of integration since graduation from college.
