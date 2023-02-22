@@ -4,7 +4,14 @@ Concept is similar to F/A-18C ATC
 This ATC mod is ported from JAS39 Gripen Mod.  Thanks for keeping the works open-source Whisky_actual!
 
 # Reason
+
 I'm a lazy computer pilot.  I always use ATC to land F/A-18C.  I believe F-22A must have ATC feature so I implement it.
+
+Actually it's really hard to keep AoA when there's no "E Bucket" on F-15C Avionics unlike F-16 or F/A-18C.  Also when the weather is bad it's really hard to land.
+
+With this mod, you can land easily with the help of ilsn glidepath assists.
+
+Moreover, the F-22A can gain speed easily while you are still working on the radar, rwr, nav ... With the atc cruise mode you have a handy way to keep speed and fuels consumption. 
 
 # Video Demo
 

@@ -1,5 +1,6 @@
 -- FlyingAlex ATC port for F-22A [21 Feb 2022]
 -- Port from JAS39 Gripen Community Mod  Thanks for keeping open source! :)
+-- See full instructions and credits on https://github.com/kingDevGit/DCS-F-22A-Auto-throttle-ATC
 dofile(LockOn_Options.common_script_path .. "devices_defs.lua")
 dofile(LockOn_Options.script_path .. "devices.lua")
 dofile(LockOn_Options.script_path .. "command_defs.lua")
