@@ -33,19 +33,17 @@ local iasHold = -100
 local throttle = 0
 local THROTTLE_INPUT = 1
 local tpos = 0
-local flapsDown = get_param_handle("FLAPS_DOWN"):get()
 
 function SetCommand(command, value)
-
+    local flapPos = sensor_data.getFlapsPos()
     if command == 10210 then
-		flapsDown = get_param_handle("FLAPS_DOWN"):get()
 
         -- Engage and disengage AT
         if AUTOTHROTTLE_STATE == 0 then
-            if flapsDown == 1 then
+            if flapPos == 1 then
                 AutoThrApproach:set(1)
 				AOA_MODE = 1
-            elseif flapsDown == 0 then
+            elseif flapPos == 0 then
                 AutoThrCruise:set(1)
 				AOA_MODE = 0
 
@@ -106,14 +104,14 @@ function update()
     local ias = sensor_data.getIndicatedAirSpeed() * 1.944 -- IAS in kts
 	local wow_l = sensor_data.getWOW_LeftMainLandingGear() -- Left main gear weight on wheels 
 	local wow_r = sensor_data.getWOW_RightMainLandingGear()	
-    flapsDown = get_param_handle("FLAPS_DOWN"):get()
+    local flapPos = sensor_data.getFlapsPos()
 
     if AUTOTHROTTLE_STATE == 1 then
         if AOA_MODE == 1 then
             update_autothrottle_approach()
             throttle_override()
 
-            if flapsDown == 0 then -- Disengage on flap position changed
+            if flapPos == 0 then -- Disengage on flap position changed
                 throttle_axis()	
                 if AUTOTHROTTLE_STATE == 1 then
                     dispatch_action(nil,10210)
@@ -124,7 +122,7 @@ function update()
             update_autothrottle()
             throttle_override()
 
-            if flapsDown == 1 then -- Disengage on flap position changed
+            if flapPos == 1 then -- Disengage on flap position changed
                 throttle_axis()	
                 if AUTOTHROTTLE_STATE == 1 then
                     dispatch_action(nil,10210)
@@ -135,12 +133,9 @@ function update()
     end
 
     -- Disengage when landed
-	if (wow_l == 1 or wow_r == 1) then
+	if (wow_l == 1 or wow_r == 1) and AUTOTHROTTLE_STATE == 1 then
 		throttle_axis()	
-		if AUTOTHROTTLE_STATE == 1 then
-			dispatch_action(nil,10210)
-
-		end 
+        dispatch_action(nil,10210)
 	end
 end
 
