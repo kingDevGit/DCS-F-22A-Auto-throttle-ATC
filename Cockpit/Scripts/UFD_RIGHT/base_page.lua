@@ -1812,7 +1812,7 @@ SpdBrake.init_pos 		= {0, -18, 0}
 SpdBrake.element_params 	= {"R_WAR_OPACITY","SPD_BRK_LIGHT","UFD_OPACITY"} --get_param_handle
 SpdBrake.controllers		= 	{{"parameter_in_range",0,0.9,1.1}, {"parameter_in_range",1,0.1,1.1}, {"opacity_using_parameter",2}}
 Add(SpdBrake)
-
+--------------------------------------------------------ATC------------------------------------------------------
 --ATC FlyingAlex
 AutoThrApp 					= CreateElement "ceStringPoly"
 AutoThrApp.name 				= "atc_app"

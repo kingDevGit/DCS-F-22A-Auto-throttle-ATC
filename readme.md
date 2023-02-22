@@ -67,11 +67,11 @@ Flaps position changed
 Weight on Wheels
 
 # Work in progress
-Fine tune the PID settings.  Have not done any calculation of integration since graduation from college.
-Add animations for engaging / disengaging ATC
-Add more handy triggers to disengage the ATC
+- Fine tune the PID settings.  Have not done any calculation of integration since graduation from college.
+- Add animations for engaging / disengaging ATC
+- Add more handy triggers to disengage the ATC
 
 # Credits
-Development team of JAS39C Gripen Community Mod https://github.com/whisky-actual/Community-JAS-39-C for the logic of ATC and the PID setting
-Grinnelli for the mod
-Nightstorm for keep updating the mod
+- Development team of JAS39C Gripen Community Mod https://github.com/whisky-actual/Community-JAS-39-C for the logic of ATC and the PID setting
+- Grinnelli for the mod
+- nightstorm for keep updating the mod
