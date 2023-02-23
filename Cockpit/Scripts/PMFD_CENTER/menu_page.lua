@@ -575,7 +575,7 @@ AutoThrApp.formats 			= {"%s"}
 AutoThrApp.h_clip_relation  = h_clip_relations.COMPARE
 AutoThrApp.level 			= 2
 AutoThrApp.init_rot 		= {0, 0, 0}
-AutoThrApp.init_pos 		= {0, 0.1, 0}. -- You can't have canopy unlock with the ATC open on ground so use the canopy status text position
+AutoThrApp.init_pos 		= {0, 0.1, 0} -- You can't have canopy unlock with the ATC open on ground so use the canopy status text position
 AutoThrApp.element_params 	= {"MFD_OPACITY","ATC_APPROACH","PMFD_MENU_PAGE"} --get_param_handle
 AutoThrApp.controllers		= {{"parameter_in_range",2,0.9,1.1}, {"parameter_in_range",1,0.1,1.1}, {"opacity_using_parameter",0}}
 Add(AutoThrApp)

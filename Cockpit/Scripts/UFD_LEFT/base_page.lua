@@ -1822,7 +1822,7 @@ AutoThrApp.formats 			= {"%s"}
 AutoThrApp.h_clip_relation  = h_clip_relations.COMPARE
 AutoThrApp.level 			= 10
 AutoThrApp.init_rot 		= {0, 0, 0}
-AutoThrApp.init_pos 		= {0, 6, 0}. -- You can't have canopy unlock with the ATC open on ground so use the canopy status text position
+AutoThrApp.init_pos 		= {0, 6, 0} -- You can't have canopy unlock with the ATC open on ground so use the canopy status text position
 AutoThrApp.element_params 	= {"L_WAR_OPACITY","ATC_APPROACH","UFD_OPACITY"} --get_param_handle
 AutoThrApp.controllers		= 	{{"parameter_in_range",0,0.9,1.1}, {"parameter_in_range",1,0.1,1.1}, {"opacity_using_parameter",2}}
 Add(AutoThrApp)
