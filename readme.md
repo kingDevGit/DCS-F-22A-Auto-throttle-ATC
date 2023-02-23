@@ -67,6 +67,8 @@ This ATC has two modes and they will engage with different situations.
 
     - Weight on Wheels
 
+    - Master Caution Light On
+
 - UFD will should the status text "ATC APPROACH"/"ATC CRUISE"
 
 - Throttle would be unusable when ATC is engaged

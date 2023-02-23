@@ -19,6 +19,7 @@ local RADIANS_TO_DEGREES = 57.2958
 local update_time_step = 0.01
 local AutoThrApproach = get_param_handle("ATC_APPROACH")
 local AutoThrCruise = get_param_handle("ATC_CRUISE")
+local CautionLight = get_param_handle("CAUTION_LIGHT")
 make_default_activity(update_time_step)
 
 local ThrottleAxis = 2004 -- FC3 Both Throttle Axis
@@ -136,6 +137,12 @@ function update()
     -- Disengage when landed
 	if (wow_l == 1 or wow_r == 1) and AUTOTHROTTLE_STATE == 1 then
 		throttle_axis()	
+        dispatch_action(nil,10210)
+	end
+
+    -- Disengage when master caution light on
+    if(CautionLight:get()>0 and AUTOTHROTTLE_STATE == 1) then
+        throttle_axis()	
         dispatch_action(nil,10210)
 	end
 end
