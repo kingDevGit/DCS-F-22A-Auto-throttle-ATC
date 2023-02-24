@@ -20,6 +20,7 @@ local update_time_step = 0.01
 local AutoThrApproach = get_param_handle("ATC_APPROACH")
 local AutoThrCruise = get_param_handle("ATC_CRUISE")
 local CautionLight = get_param_handle("CAUTION_LIGHT")
+local MainPower = get_param_handle("MAIN_POWER") -- It should be checked for all control
 make_default_activity(update_time_step)
 
 local ThrottleAxis = 2004 -- FC3 Both Throttle Axis
@@ -38,32 +39,33 @@ local tpos = 0
 
 function SetCommand(command, value)
     local flapPos = sensor_data.getFlapsPos()
-    if command == 10210 then
 
-        -- Engage and disengage AT
-        if AUTOTHROTTLE_STATE == 0 then
-            if flapPos == 1 then
-                AutoThrApproach:set(1)
-				AOA_MODE = 1
-            elseif flapPos == 0 then
-                AutoThrCruise:set(1)
-				AOA_MODE = 0
+    if(MainPower:get() == 1) then
+        if command == 10210 then
+            -- Engage and disengage AT
+            if AUTOTHROTTLE_STATE == 0 then
+                if flapPos == 1 then
+                    AutoThrApproach:set(1)
+                    AOA_MODE = 1
+                elseif flapPos == 0 then
+                    AutoThrCruise:set(1)
+                    AOA_MODE = 0
 
+                end
+                AUTOTHROTTLE_STATE = 1
+                tpos = THROTTLE_INPUT
+                speedHold = sensor_data.getTrueAirSpeed()
+                iasHold = sensor_data.getIndicatedAirSpeed()
+
+            elseif AUTOTHROTTLE_STATE == 1 then
+                AUTOTHROTTLE_STATE = 0
+                speedHold = -100
+                iasHold = -100
+                AutoThrApproach:set(0)
+                AutoThrCruise:set(0)
             end
-            AUTOTHROTTLE_STATE = 1
-            tpos = THROTTLE_INPUT
-            speedHold = sensor_data.getTrueAirSpeed()
-            iasHold = sensor_data.getIndicatedAirSpeed()
-
-        elseif AUTOTHROTTLE_STATE == 1 then
-            AUTOTHROTTLE_STATE = 0
-            speedHold = -100
-			iasHold = -100
-            AutoThrApproach:set(0)
-			AutoThrCruise:set(0)
         end
     end
-
 end
 
 function update_autothrottle() -- Autothrottle function
@@ -108,7 +110,7 @@ function update()
 	local wow_r = sensor_data.getWOW_RightMainLandingGear()	
     local flapPos = sensor_data.getFlapsPos()
 
-    if AUTOTHROTTLE_STATE == 1 then
+    if AUTOTHROTTLE_STATE == 1 and MainPower:get() == 1 then
         if AOA_MODE == 1 then
             update_autothrottle_approach()
             throttle_override()
@@ -145,6 +147,12 @@ function update()
         throttle_axis()	
         dispatch_action(nil,10210)
 	end
+
+    -- Disengage when main power off
+    if(MainPower:get() == 0 and AUTOTHROTTLE_STATE == 1) then
+        throttle_axis()	
+        dispatch_action(nil,10210)
+    end
 end
 
 need_to_be_closed = false
